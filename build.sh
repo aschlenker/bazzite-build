@@ -28,11 +28,6 @@ dnf5 config-manager setopt docker-ce-stable.enabled=0
 dnf5 install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
 systemctl enable docker.socket
 
-dnf5 -y copr enable rok/cdemu
-dnf5 -y install cdemu-daemon
-dnf5 -y install cdemu-client
-dnf5 -y copr disable rok/cdemu
-
 dnf5 -y copr enable faugus/faugus-launcher
 dnf5 -y install faugus-launcher
 dnf5 -y copr disable faugus/faugus-launcher

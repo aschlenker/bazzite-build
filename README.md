@@ -50,7 +50,7 @@ shfmt -l -w build.sh
 npx prettier --write README.md
 ```
 
-### Lint
+### Check
 
 ```bash
 shellcheck -x -s bash -o all build.sh

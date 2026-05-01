@@ -28,7 +28,6 @@ fedora_pkgs=(
 )
 dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
 systemctl enable libvirtd.service
-virsh net-autostart default
 
 dnf config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
 dnf config-manager setopt vscode.enabled=0

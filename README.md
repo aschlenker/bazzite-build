@@ -39,6 +39,7 @@ After the installation, update your user account:
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo usermod -aG libvirt $USER
+sudo virsh net-autostart default
 ```
 
 Layer `CDEmu` packages (optional):

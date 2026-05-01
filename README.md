@@ -15,8 +15,6 @@ Added Fedora packages:
 
 Added Copr packages:
 
-- cdemu-client ([rok/cdemu](https://copr.fedorainfracloud.org/coprs/rok/cdemu))
-- cdemu-daemon ([rok/cdemu](https://copr.fedorainfracloud.org/coprs/rok/cdemu))
 - faugus-launcher ([faugus/faugus-launcher](https://copr.fedorainfracloud.org/coprs/faugus/faugus-launcher/))
 
 Added Vendor packages:
@@ -32,13 +30,21 @@ For `bazzite`:
 sudo bootc switch ghcr.io/aschlenker/bazzite:latest
 ```
 
-After the installation update your user account:
+After the installation, update your user account:
 
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo groupadd libvirt
 sudo usermod -aG libvirt $USER
+```
+
+Layer `CDEmu` packages (optional):
+
+```bash
+sudo dnf -y copr enable rok/cdemu
+rpm-ostree install cdemu-daemon
+rpm-ostree install cdemu-client
 ```
 
 ## Development

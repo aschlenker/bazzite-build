@@ -10,11 +10,11 @@ fedora_pkgs=(
 	libvirt
 	virt-manager
 )
-dnf5 --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
+dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
 
-dnf5 config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
-dnf5 config-manager setopt vscode.enabled=0
-dnf5 install --nogpgcheck --enable-repo="vscode" -y code
+dnf config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
+dnf config-manager setopt vscode.enabled=0
+dnf install --nogpgcheck --enable-repo="vscode" -y code
 
 docker_pkgs=(
 	containerd.io
@@ -23,13 +23,13 @@ docker_pkgs=(
 	docker-ce-cli
 	docker-compose-plugin
 )
-dnf5 config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
-dnf5 config-manager setopt docker-ce-stable.enabled=0
-dnf5 install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
+dnf config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
+dnf config-manager setopt docker-ce-stable.enabled=0
+dnf install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
 systemctl enable docker.socket
 
-dnf5 -y copr enable faugus/faugus-launcher
-dnf5 -y install faugus-launcher
-dnf5 -y copr disable faugus/faugus-launcher
+dnf -y copr enable faugus/faugus-launcher
+dnf -y install faugus-launcher
+dnf -y copr disable faugus/faugus-launcher
 
-dnf5 clean all
+dnf clean all

@@ -14,7 +14,7 @@ Added packages:
 For `bazzite`:
 
 ```bash
-rpm-ostree rebase ostree-image-signed:docker://ghcr.io/aschlenker/bazzite:latest
+sudo bootc switch ghcr.io/aschlenker/bazzite:latest
 ```
 
 After the installation update your user account:

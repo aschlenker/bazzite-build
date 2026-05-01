@@ -8,6 +8,7 @@ Added packages:
 
 - vscode
 - docker
+- virt-manager
 
 ## Installation
 
@@ -22,4 +23,6 @@ After the installation update your user account:
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker $USER
+sudo groupadd libvirt
+sudo usermod -aG libvirt $USER
 ```

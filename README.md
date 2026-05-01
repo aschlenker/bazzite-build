@@ -21,8 +21,8 @@ Added Copr packages:
 
 Added Vendor packages:
 
-- Docker Engine ([download.docker.com](https://download.docker.com/linux/fedora))
-- VS Code ([packages.microsoft.com](https://packages.microsoft.com/yumrepos/vscode))
+- docker ([download.docker.com](https://download.docker.com/linux/fedora))
+- code ([packages.microsoft.com](https://packages.microsoft.com/yumrepos/vscode))
 
 ## Installation
 

@@ -3,13 +3,25 @@
 set -ouex pipefail
 
 fedora_pkgs=(
+	android-tools
+	bubblewrap
 	dosbox-staging
 	firejail
 	git-credential-libsecret
+	guestfs-tools
 	libvirt
-	qemu-kvm
+	libvirt-nss
+	qemu
 	sysprof
 	virt-manager
+	qemu-char-spice
+	qemu-device-display-virtio-gpu
+	qemu-device-display-virtio-vga
+	qemu-device-usb-redirect
+	qemu-img
+	qemu-system-x86-core
+	qemu-user-binfmt
+	qemu-user-static
 )
 dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
 

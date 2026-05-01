@@ -6,11 +6,14 @@ Bazzite custom image with customizations for development and retro gaming.
 
 Added Fedora packages:
 
+- android-tools
+- bubblewrap
 - dosbox-staging
 - firejail
 - git-credential-libsecret
-- virt-manager
 - sysprof
+- sysprof
+- virt-manager
 
 Added Copr packages:
 

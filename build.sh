@@ -50,3 +50,9 @@ dnf -y install faugus-launcher
 dnf -y copr disable faugus/faugus-launcher
 
 dnf clean all
+
+rm -rf /tmp/*
+
+# shellcheck disable=SC2114
+rm -rf /var
+mkdir -p /var

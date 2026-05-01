@@ -6,8 +6,9 @@ fedora_pkgs=(
 	dosbox-staging
 	firejail
 	git-credential-libsecret
-	qemu-kvm
 	libvirt
+	qemu-kvm
+	sysprof
 	virt-manager
 )
 dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
@@ -22,6 +23,7 @@ docker_pkgs=(
 	docker-ce
 	docker-ce-cli
 	docker-compose-plugin
+	docker-model-plugin
 )
 dnf config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
 dnf config-manager setopt docker-ce-stable.enabled=0

@@ -10,8 +10,9 @@ Added Fedora packages:
 - bubblewrap
 - dosbox-staging
 - firejail
+- flatpak-builder
 - git-credential-libsecret
-- sysprof
+- git-subtree
 - sysprof
 - virt-manager
 

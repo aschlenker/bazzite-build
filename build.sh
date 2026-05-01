@@ -7,13 +7,13 @@ fedora_pkgs=(
 	bubblewrap
 	dosbox-staging
 	firejail
+	flatpak-builder
 	git-credential-libsecret
+	git-subtree
 	guestfs-tools
 	libvirt
 	libvirt-nss
 	qemu
-	sysprof
-	virt-manager
 	qemu-char-spice
 	qemu-device-display-virtio-gpu
 	qemu-device-display-virtio-vga
@@ -22,6 +22,9 @@ fedora_pkgs=(
 	qemu-system-x86-core
 	qemu-user-binfmt
 	qemu-user-static
+	sysprof
+	virt-manager
+	virt-v2v
 )
 dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
 
@@ -47,9 +50,3 @@ dnf -y install faugus-launcher
 dnf -y copr disable faugus/faugus-launcher
 
 dnf clean all
-
-flatpak uninstall --delete-data org.kde.gwenview
-flatpak uninstall --delete-data org.kde.okular
-flatpak uninstall --delete-data org.kde.kcalc
-flatpak uninstall --delete-data org.kde.haruna
-flatpak uninstall --delete-data io.github.DenysMb.Kontainer

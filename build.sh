@@ -12,6 +12,21 @@ set -ouex pipefail
 # this installs a package from fedora repos
 # dnf5 install -y tmux
 
+dnf5 config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
+dnf5 config-manager setopt vscode.enabled=0
+dnf5 install --nogpgcheck --enable-repo="vscode" -y code
+
+docker_pkgs=(
+    containerd.io
+    docker-buildx-plugin
+    docker-ce
+    docker-ce-cli
+    docker-compose-plugin
+)
+dnf5 config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
+dnf5 config-manager setopt docker-ce-stable.enabled=0
+dnf5 install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
+
 # Use a COPR Example:
 #
 # dnf5 -y copr enable ublue-os/staging
@@ -21,4 +36,4 @@ set -ouex pipefail
 
 #### Example for enabling a System Unit File
 
-systemctl enable podman.socket
+systemctl enable docker.socket

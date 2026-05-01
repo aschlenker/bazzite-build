@@ -3,9 +3,12 @@
 set -ouex pipefail
 
 fedora_pkgs=(
+	dosbox-staging
+	firejail
+	git-credential-libsecret
 	qemu-kvm
-    libvirt
-    virt-manager
+	libvirt
+	virt-manager
 )
 dnf5 --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
 
@@ -23,14 +26,15 @@ docker_pkgs=(
 dnf5 config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
 dnf5 config-manager setopt docker-ce-stable.enabled=0
 dnf5 install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
-
-# Use a COPR Example:
-#
-# dnf5 -y copr enable ublue-os/staging
-# dnf5 -y install package
-# Disable COPRs so they don't end up enabled on the final image:
-# dnf5 -y copr disable ublue-os/staging
-
-#### Example for enabling a System Unit File
-
 systemctl enable docker.socket
+
+dnf5 -y copr enable rok/cdemu
+dnf5 -y install cdemu-daemon
+dnf5 -y install cdemu-client
+dnf5 -y copr disable rok/cdemu
+
+dnf5 -y copr enable faugus/faugus-launcher
+dnf5 -y install faugus-launcher
+dnf5 -y copr disable faugus/faugus-launcher
+
+dnf5 clean all

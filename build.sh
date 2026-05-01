@@ -29,7 +29,7 @@ dnf5 install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
 systemctl enable docker.socket
 
 dnf5 -y copr enable rok/cdemu
-dnf5 -y install cdemu-daemon
+sudo -u akmodsbuild -- dnf5 -y install cdemu-daemon
 dnf5 -y install cdemu-client
 dnf5 -y copr disable rok/cdemu
 

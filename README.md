@@ -33,7 +33,7 @@ For `bazzite`:
 sudo bootc switch ghcr.io/aschlenker/bazzite:latest
 ```
 
-After the installation, update your user account:
+After the installation, run:
 
 ```bash
 sudo groupadd docker

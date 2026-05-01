@@ -40,3 +40,18 @@ sudo usermod -aG docker $USER
 sudo groupadd libvirt
 sudo usermod -aG libvirt $USER
 ```
+
+## Development
+
+### Format
+
+```bash
+shfmt -l -w build.sh
+npx prettier --write README.md
+```
+
+### Lint
+
+```bash
+shellcheck -x -s bash -o all build.sh
+```

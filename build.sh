@@ -17,11 +17,11 @@ dnf5 config-manager setopt vscode.enabled=0
 dnf5 install --nogpgcheck --enable-repo="vscode" -y code
 
 docker_pkgs=(
-    containerd.io
-    docker-buildx-plugin
-    docker-ce
-    docker-ce-cli
-    docker-compose-plugin
+	containerd.io
+	docker-buildx-plugin
+	docker-ce
+	docker-ce-cli
+	docker-compose-plugin
 )
 dnf5 config-manager addrepo --from-repofile="https://download.docker.com/linux/fedora/docker-ce.repo"
 dnf5 config-manager setopt docker-ce-stable.enabled=0

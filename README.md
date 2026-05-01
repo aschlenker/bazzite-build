@@ -39,9 +39,6 @@ After the installation, run:
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo usermod -aG libvirt $USER
-
-sudo systemctl enable libvirtd.service
-sudo virsh net-autostart default
 sudo restorecon -rv /var/lib/libvirt
 sudo restorecon -rv /var/log/libvirt
 ```

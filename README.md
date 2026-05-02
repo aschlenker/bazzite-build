@@ -39,6 +39,10 @@ After the installation, run:
 sudo groupadd docker
 sudo usermod -aG docker $USER
 sudo usermod -aG libvirt $USER
+if [[ ! -d "/var/lib/swtpm-localca" ]]; then
+	sudo mkdir /var/lib/swtpm-localca
+fi
+sudo chown tss /var/lib/swtpm-localca
 sudo restorecon -rv /var/lib/libvirt
 sudo restorecon -rv /var/log/libvirt
 ```

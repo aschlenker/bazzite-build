@@ -10,7 +10,7 @@ Differences to `bazzite-dx`:
 
 - Omission of unnecessary commandline tools
 
-    These might be useful but can easily be obtained with `homebrew`.
+    These might be useful, but can easily be obtained with `homebrew`.
 
 - Omission of `ROCm` (for now)
 
@@ -61,14 +61,13 @@ sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 
 ## Setup
 
-Run these scripts after the installation to enable the corresponding features.
+Run these scripts after the installation to enable the corresponding features. A reboot is required for changes to take effect.
 
 ### Docker
 
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker "${USER}"
-echo "Reboot to apply changes"
 ```
 
 ### Virt Manager
@@ -84,7 +83,6 @@ fi
 sudo chown tss /var/lib/swtpm-localca
 sudo restorecon -rv /var/lib/libvirt
 sudo restorecon -rv /var/log/libvirt
-echo "Reboot to apply changes"
 ```
 
 ## Optional

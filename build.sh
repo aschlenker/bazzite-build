@@ -48,6 +48,9 @@ dnf -y copr enable faugus/faugus-launcher
 dnf -y install faugus-launcher
 dnf -y copr disable faugus/faugus-launcher
 
+systemctl disable --global ntfs-nag.service
+systemctl mask --global ntfs-nag.service
+
 for dir in /var/opt/*/; do
 	[[ -d "${dir}" ]] || continue
 	dirname=$(basename "${dir}")

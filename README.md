@@ -28,7 +28,7 @@ Differences to `bazzite-dx`:
 
     I simply did not find the time to tinker with it yet.
 
-## Changes
+## Packages
 
 Added Fedora packages:
 
@@ -56,6 +56,12 @@ For `bazzite`:
 
 ```bash
 sudo bootc switch ghcr.io/aschlenker/bazzite:latest
+```
+
+For `bazzite-nvidia-open`:
+
+```bash
+sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 ```
 
 ## Setup

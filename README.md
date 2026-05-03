@@ -10,7 +10,7 @@ Differences to `bazzite-dx`:
 
 - Omission of unnecessary commandline tools
 
-    These might be useful but can easily be obtained with `homebrew`.
+    These might be useful, but can easily be obtained with `homebrew`.
 
 - Omission of `ROCm` (for now)
 

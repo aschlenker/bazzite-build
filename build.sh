@@ -9,7 +9,6 @@ fedora_pkgs=(
 	firejail
 	flatpak-builder
 	git-credential-libsecret
-	git-subtree
 	guestfs-tools
 	libvirt
 	libvirt-nss

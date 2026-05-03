@@ -2,6 +2,32 @@
 
 Bazzite custom image with customizations for development and retro gaming.
 
+Differences to `bazzite-dx`:
+
+- Based on `bazzite` not `bazzite-deck`
+
+    Gets faster updates and allows for easy disabling of `Steam` autostart in `System Settings`.
+
+- Native `Faugus Launcher`
+
+    A game launcher that works well with `gamescope`.
+
+- Preinstalled `firejail` and `bubblewrap`
+
+    For sandboxing applications that are easier to run outside a container or flatpak.
+
+- Omission of unnecessary commandline tools
+
+    These might be useful but can easily be obtained with `homebrew`.
+
+- Omission of `ROCm` (for now)
+
+    On the positive side that means `Intel` users find `mesa-libOpenCL` is still available.
+
+- Omission of `kvmfr`/`Looking Glass` (for now)
+
+    I simply did not find the time to tinker with it yet.
+
 ## Changes
 
 Added Fedora packages:
@@ -12,7 +38,6 @@ Added Fedora packages:
 - firejail
 - flatpak-builder
 - git-credential-libsecret
-- git-subtree
 - sysprof
 - virt-manager
 
@@ -33,11 +58,24 @@ For `bazzite`:
 sudo bootc switch ghcr.io/aschlenker/bazzite:latest
 ```
 
-After the installation, run:
+## Setup
+
+Run these scripts after the installation to enable the corresponding features.
+
+### Docker
 
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker "${USER}"
+echo "Reboot to apply changes"
+```
+
+### Virt Manager
+
+> [!CAUTION]
+> This script replaces `ujust setup-virtualization`
+
+```bash
 sudo usermod -aG libvirt "${USER}"
 if [[ ! -d /var/lib/swtpm-localca ]]; then
 	sudo mkdir /var/lib/swtpm-localca
@@ -45,9 +83,14 @@ fi
 sudo chown tss /var/lib/swtpm-localca
 sudo restorecon -rv /var/lib/libvirt
 sudo restorecon -rv /var/log/libvirt
+echo "Reboot to apply changes"
 ```
 
-Layer `CDEmu` packages (optional):
+## Optional
+
+### CDEmu
+
+This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically built kernel module.
 
 ```bash
 sudo dnf -y copr enable rok/cdemu

@@ -61,14 +61,13 @@ sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 
 ## Setup
 
-Run these scripts after the installation to enable the corresponding features.
+Run these scripts after the installation to enable the corresponding features. A reboot is required for changes to take effect.
 
 ### Docker
 
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker "${USER}"
-echo "Reboot to apply changes"
 ```
 
 ### Virt Manager
@@ -84,7 +83,6 @@ fi
 sudo chown tss /var/lib/swtpm-localca
 sudo restorecon -rv /var/lib/libvirt
 sudo restorecon -rv /var/log/libvirt
-echo "Reboot to apply changes"
 ```
 
 ## Optional

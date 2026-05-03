@@ -8,14 +8,6 @@ Differences to `bazzite-dx`:
 
     Gets faster updates and allows for easy disabling of `Steam` autostart in `System Settings`.
 
-- Native `Faugus Launcher`
-
-    A game launcher that works well with `gamescope`.
-
-- Preinstalled `firejail` and `bubblewrap`
-
-    For sandboxing applications that are easier to run outside a container or flatpak.
-
 - Omission of unnecessary commandline tools
 
     These might be useful but can easily be obtained with `homebrew`.

@@ -48,6 +48,13 @@ dnf -y copr enable faugus/faugus-launcher
 dnf -y install faugus-launcher
 dnf -y copr disable faugus/faugus-launcher
 
+for dir in /var/opt/*/; do
+	[[ -d "${dir}" ]] || continue
+	dirname=$(basename "${dir}")
+	mv "${dir}" "/usr/lib/opt/${dirname}"
+	echo "L+ /var/opt/${dirname} - - - - /usr/lib/opt/${dirname}" >>/usr/lib/tmpfiles.d/opt-fix.conf
+done
+
 dnf clean all
 
 rm -rf /tmp/*

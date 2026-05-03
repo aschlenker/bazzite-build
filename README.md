@@ -56,6 +56,9 @@ For `bazzite-nvidia-open`:
 sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 ```
 
+> [!IMPORTANT]
+> If desktop entries don't show up in `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`
+
 ## Setup
 
 Run these scripts after the installation to enable the corresponding features.

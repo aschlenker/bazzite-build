@@ -62,8 +62,14 @@ For `bazzite-gnome`:
 sudo bootc switch ghcr.io/aschlenker/bazzite-gnome:latest
 ```
 
+For `bazzite-gnome-nvidia-open`:
+
+```bash
+sudo bootc switch ghcr.io/aschlenker/bazzite-gnome-nvidia-open:latest
+```
+
 > [!IMPORTANT]
-> If desktop entries don't show up in `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`
+> If desktop entries don't show up in `KDE Plasma`'s `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`
 
 ## Setup
 

@@ -6,7 +6,7 @@ Differences to `bazzite-dx`:
 
 - Based on `bazzite` not `bazzite-deck`
 
-    Gets faster updates and allows for easy disabling of `Steam` autostart in `System Settings`.
+    Gets faster updates and allows for easy disabling of `Steam` autostart.
 
 - Omission of unnecessary commandline tools
 

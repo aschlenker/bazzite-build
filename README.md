@@ -101,7 +101,7 @@ sudo restorecon -rv /var/log/libvirt
 
 ### CDEmu
 
-This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically built kernel module.
+This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically build kernel module.
 
 ```bash
 sudo dnf -y copr enable rok/cdemu

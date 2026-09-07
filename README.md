@@ -44,6 +44,11 @@ Added Vendor packages:
 
 ## Installation
 
+### KDE Plasma
+
+> [!IMPORTANT]
+> If desktop entries don't show up in `KDE Plasma`'s `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`
+
 For `bazzite`:
 
 ```bash
@@ -56,6 +61,8 @@ For `bazzite-nvidia-open`:
 sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 ```
 
+### GNOME
+
 For `bazzite-gnome`:
 
 ```bash
@@ -67,9 +74,6 @@ For `bazzite-gnome-nvidia-open`:
 ```bash
 sudo bootc switch ghcr.io/aschlenker/bazzite-gnome-nvidia-open:latest
 ```
-
-> [!IMPORTANT]
-> If desktop entries don't show up in `KDE Plasma`'s `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`
 
 ## Setup
 
@@ -101,7 +105,10 @@ sudo restorecon -rv /var/log/libvirt
 
 ### CDEmu
 
-This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically built kernel module. The required kernel module can only be loaded if `secure boot` is turned `off`, check your secure boot status with `mokutil --sb-state`.
+This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically built kernel module.
+
+> [!IMPORTANT]
+> The required kernel module can only be loaded if `secure boot` is turned `off`, check your secure boot status with `mokutil --sb-state`
 
 ```bash
 sudo dnf -y copr enable rok/cdemu

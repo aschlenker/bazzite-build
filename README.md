@@ -46,7 +46,7 @@ Added Vendor packages:
 
 ### KDE Plasma
 
-> [!IMPORTANT]
+> [!TIP]
 > If desktop entries don't show up in `KDE Plasma`'s `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`.
 
 For `bazzite`:
@@ -91,7 +91,7 @@ sudo usermod -aG docker "${USER}"
 
 ### Virt Manager
 
-> [!CAUTION]
+> [!IMPORTANT]
 > This script replaces `ujust setup-virtualization`.
 
 ```bash

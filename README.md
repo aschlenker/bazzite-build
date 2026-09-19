@@ -81,6 +81,9 @@ Run these scripts after the installation to enable the corresponding features. A
 
 ### Docker
 
+> [!CAUTION]
+> The docker group grants root-level privileges to the user. For details on how this impacts security in your system, see [Docker Daemon Attack Surface](https://docs.docker.com/engine/security/#docker-daemon-attack-surface)
+
 ```bash
 sudo groupadd docker
 sudo usermod -aG docker "${USER}"
@@ -108,7 +111,7 @@ sudo restorecon -rv /var/log/libvirt
 This tool allows for the mounting of various disc image formats such as `bin/cue`. It could not be included in the image because it relies on a dynamically built kernel module.
 
 > [!IMPORTANT]
-> The required kernel module can only be loaded if `secure boot` is turned `off`, check your secure boot status with `mokutil --sb-state`
+> The required kernel module can only be loaded on `Bazzite` if `secure boot` is turned `off`, check your secure boot status with `mokutil --sb-state`
 
 ```bash
 sudo dnf -y copr enable rok/cdemu

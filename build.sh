@@ -91,4 +91,5 @@ rm -rf /tmp/*
 
 # shellcheck disable=SC2114
 rm -rf /var
-mkdir -p /var
+mkdir -p /var/tmp
+chmod -R 1777 /var/tmp

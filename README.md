@@ -74,7 +74,7 @@ sudo bootc switch ghcr.io/aschlenker/bazzite-gnome-nvidia-open:latest
 
 ## Setup
 
-Run these scripts after the installation to enable the corresponding features. A reboot is required for changes to take effect.
+Run these scripts after the installation to enable the corresponding features. A reboot is usually required for changes to take effect.
 
 ### Docker
 

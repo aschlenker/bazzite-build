@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ouex pipefail
+set -ueox pipefail
 
 fedora_pkgs=(
 	android-tools
@@ -9,6 +9,11 @@ fedora_pkgs=(
 	firejail
 	flatpak-builder
 	git-credential-libsecret
+	sysprof
+)
+dnf install -y "${fedora_pkgs[@]}"
+
+virt_manager_pkgs=(
 	guestfs-tools
 	libvirt
 	libvirt-nss
@@ -18,14 +23,28 @@ fedora_pkgs=(
 	qemu-device-display-virtio-vga
 	qemu-device-usb-redirect
 	qemu-img
+	qemu-kvm
 	qemu-system-x86-core
 	qemu-user-binfmt
 	qemu-user-static
-	sysprof
 	virt-manager
 	virt-v2v
+	# Install pinned version of edk2-ovmf until fixes arrive.
+	# See:
+	#   - https://github.com/ublue-os/bazzite/issues/5857
+	https://kojipkgs.fedoraproject.org/packages/edk2/20260508/8.fc44/x86_64/edk2-tools-20260508-8.fc44.x86_64.rpm
+	https://kojipkgs.fedoraproject.org//packages/edk2/20260508/8.fc44/noarch/edk2-ovmf-20260508-8.fc44.noarch.rpm
 )
-dnf --setopt=install_weak_deps=False install -y "${fedora_pkgs[@]}"
+dnf --setopt=install_weak_deps=False install -y "${virt_manager_pkgs[@]}"
+
+rocm_pkgs=(
+	rocm-hip
+	rocm-opencl
+	rocm-clinfo
+	rocm-smi
+)
+dnf remove -y mesa-libOpenCL # incompatible
+dnf --setopt=install_weak_deps=False install -y "${rocm_pkgs[@]}"
 
 dnf config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
 dnf config-manager setopt vscode.enabled=0
@@ -43,6 +62,14 @@ dnf config-manager addrepo --from-repofile="https://download.docker.com/linux/fe
 dnf config-manager setopt docker-ce-stable.enabled=0
 dnf install -y --enable-repo="docker-ce-stable" "${docker_pkgs[@]}"
 systemctl enable docker.socket
+
+# Load iptable_nat module for docker-in-docker.
+# See:
+#   - https://github.com/ublue-os/bluefin/issues/2365
+#   - https://github.com/devcontainers/features/issues/1235
+mkdir -p /etc/modules-load.d && cat >>/etc/modules-load.d/ip_tables.conf <<EOF
+iptable_nat
+EOF
 
 dnf -y copr enable faugus/faugus-launcher
 dnf -y install faugus-launcher

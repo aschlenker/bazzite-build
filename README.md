@@ -12,11 +12,7 @@ Differences to `bazzite-dx`:
 
     These might be useful, but can easily be obtained with `homebrew`.
 
-- Omission of `ROCm` (for now)
-
-    On the positive side that means `Intel` users find `mesa-libOpenCL` is still available.
-
-- Omission of `kvmfr`/`Looking Glass` (for now)
+- Omission of `kvmfr`/`Looking Glass` configuration (for now)
 
     I simply did not find the time to tinker with it yet.
 
@@ -32,6 +28,7 @@ Added Fedora packages:
 - git-credential-libsecret
 - sysprof
 - virt-manager
+- rocm
 
 Added Copr packages:
 

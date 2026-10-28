@@ -89,6 +89,10 @@ echo "==> Disable NTFS nag"
 systemctl disable --global ntfs-nag.service
 systemctl mask --global ntfs-nag.service
 
+echo "==> Disable ujust setup-virtualization"
+
+sed -i '/import "\/usr\/share\/ublue-os\/just\/84-bazzite-virt.just"/d' /usr/share/ublue-os/justfile
+
 echo "==> Fix /opt"
 
 for dir in /var/opt/*/; do

@@ -14,6 +14,8 @@ fedora_pkgs=(
 dnf install -y "${fedora_pkgs[@]}"
 
 virt_manager_pkgs=(
+	edk2-ovmf
+	edk2-tools
 	guestfs-tools
 	libvirt
 	libvirt-nss
@@ -29,11 +31,6 @@ virt_manager_pkgs=(
 	qemu-user-static
 	virt-manager
 	virt-v2v
-	# Install pinned version of edk2-ovmf until fixes arrive.
-	# See:
-	#   - https://github.com/ublue-os/bazzite/issues/5857
-	https://kojipkgs.fedoraproject.org/packages/edk2/20260508/8.fc44/x86_64/edk2-tools-20260508-8.fc44.x86_64.rpm
-	https://kojipkgs.fedoraproject.org//packages/edk2/20260508/8.fc44/noarch/edk2-ovmf-20260508-8.fc44.noarch.rpm
 )
 dnf --setopt=install_weak_deps=False install -y "${virt_manager_pkgs[@]}"
 

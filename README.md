@@ -44,7 +44,7 @@ Added Vendor packages:
 ### KDE Plasma
 
 > [!TIP]
-> If desktop entries don't show up in `KDE Plasma`'s `Application Launcher`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`.
+> If desktop entries don't show up in `KDE Plasma`, rebuild the desktop file system configuration cache by running `kbuildsycoca6`.
 
 For `bazzite`:
 
@@ -59,6 +59,9 @@ sudo bootc switch ghcr.io/aschlenker/bazzite-nvidia-open:latest
 ```
 
 ### GNOME
+
+> [!TIP]
+> If desktop entries don't show up in `GNOME`, rebuild the desktop file system configuration cache by running `sudo update-desktop-database`.
 
 For `bazzite-gnome`:
 

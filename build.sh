@@ -2,6 +2,8 @@
 
 set -ueox pipefail
 
+echo "==> Install Fedora packages"
+
 fedora_pkgs=(
 	android-tools
 	bubblewrap
@@ -12,6 +14,8 @@ fedora_pkgs=(
 	sysprof
 )
 dnf install -y "${fedora_pkgs[@]}"
+
+echo "==> Install virt-manager"
 
 virt_manager_pkgs=(
 	edk2-ovmf
@@ -34,6 +38,8 @@ virt_manager_pkgs=(
 )
 dnf --setopt=install_weak_deps=False install -y "${virt_manager_pkgs[@]}"
 
+echo "==> Install ROCm"
+
 rocm_pkgs=(
 	rocm-hip
 	rocm-opencl
@@ -43,9 +49,13 @@ rocm_pkgs=(
 dnf remove -y mesa-libOpenCL # incompatible
 dnf --setopt=install_weak_deps=False install -y "${rocm_pkgs[@]}"
 
+echo "==> Install VSCode"
+
 dnf config-manager addrepo --set=baseurl="https://packages.microsoft.com/yumrepos/vscode" --id="vscode"
 dnf config-manager setopt vscode.enabled=0
 dnf install --nogpgcheck --enable-repo="vscode" -y code
+
+echo "==> Install Docker"
 
 docker_pkgs=(
 	containerd.io
@@ -68,12 +78,18 @@ mkdir -p /etc/modules-load.d && cat >>/etc/modules-load.d/ip_tables.conf <<EOF
 iptable_nat
 EOF
 
+echo "==> Install Faugus Launcher"
+
 dnf -y copr enable faugus/faugus-launcher
 dnf -y install faugus-launcher
 dnf -y copr disable faugus/faugus-launcher
 
+echo "==> Disable NTFS nag"
+
 systemctl disable --global ntfs-nag.service
 systemctl mask --global ntfs-nag.service
+
+echo "==> Fix /opt"
 
 for dir in /var/opt/*/; do
 	[[ -d "${dir}" ]] || continue
@@ -81,6 +97,8 @@ for dir in /var/opt/*/; do
 	mv "${dir}" "/usr/lib/opt/${dirname}"
 	echo "L+ /var/opt/${dirname} - - - - /usr/lib/opt/${dirname}" >>/usr/lib/tmpfiles.d/opt-fix.conf
 done
+
+echo "==> Cleanup"
 
 dnf clean all
 

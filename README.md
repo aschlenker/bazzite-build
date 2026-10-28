@@ -124,12 +124,12 @@ rpm-ostree install cdemu-client
 ### Format
 
 ```bash
-shfmt -l -w build.sh
+shfmt -l -w build
 npx prettier --write README.md
 ```
 
 ### Check
 
 ```bash
-shellcheck -x -s bash -o all build.sh
+shellcheck -x -s bash -o all build
 ```

@@ -1,0 +1,8 @@
+# System Files
+.DS_Store
+
+# IDEs
+.idea
+
+# node.js
+**/node_modules

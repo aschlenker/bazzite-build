@@ -30,11 +30,11 @@ Added Fedora packages:
 - virt-manager
 - rocm
 
-Added Copr packages:
+Added copr packages:
 
 - faugus-launcher ([faugus/faugus-launcher](https://copr.fedorainfracloud.org/coprs/faugus/faugus-launcher/))
 
-Added Vendor packages:
+Added vendor packages:
 
 - docker ([download.docker.com](https://download.docker.com/linux/fedora))
 - code ([packages.microsoft.com](https://packages.microsoft.com/yumrepos/vscode))

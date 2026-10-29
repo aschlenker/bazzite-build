@@ -1,6 +1,6 @@
 # Bazzite Build
 
-Bazzite custom image with customizations for development and retro gaming.
+Bazzite image with customizations for development and retro gaming.
 
 Differences to `bazzite-dx`:
 

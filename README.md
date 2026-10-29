@@ -118,18 +118,3 @@ sudo dnf -y copr enable rok/cdemu
 rpm-ostree install cdemu-daemon
 rpm-ostree install cdemu-client
 ```
-
-## Development
-
-### Format
-
-```bash
-shfmt -l -w build
-npx prettier --write README.md
-```
-
-### Check
-
-```bash
-shellcheck -x -s bash -o all build
-```

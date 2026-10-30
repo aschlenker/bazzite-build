@@ -28,6 +28,8 @@
 		"repofile",
 		"restorecon",
 		"rocm",
+		"shellcheck",
+		"shfmt",
 		"swtpm",
 		"sysprof",
 		"tmpfiles",
